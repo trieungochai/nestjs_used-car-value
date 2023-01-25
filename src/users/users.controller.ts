@@ -31,6 +31,12 @@ export class UsersController {
     return user;
   }
 
+  @Post('/signin')
+  async signin(@Body() body: CreateUserDto) {
+    const user = await this.authService.signin(body.email, body.password);
+    return user;
+  }
+
   @Get('/:id')
   async findUser(@Param('id') id: string) {
     // console.log('Handler is running');
