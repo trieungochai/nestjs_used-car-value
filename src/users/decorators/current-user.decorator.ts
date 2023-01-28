@@ -4,6 +4,7 @@ export const CurrentUser = createParamDecorator(
   // data: never -> this value is never going to be used
   (data: never, context: ExecutionContext) => {
     const request = context.switchToHttp().getRequest();
-    return request.currentUserId;
+
+    return request.currentUser;
   },
 );
