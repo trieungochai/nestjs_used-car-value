@@ -17,6 +17,7 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
 import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -26,10 +27,14 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
+  // @Get('/whoami')
+  // async whoami(@Session() session: any) {
+  //   const currentUser = await this.usersService.findOne(session.userId);
+  //   return currentUser;
+  // }
   @Get('/whoami')
-  async whoami(@Session() session: any) {
-    const currentUser = await this.usersService.findOne(session.userId);
-    return currentUser;
+  whoami(@CurrentUser() user: string) {
+    return user;
   }
 
   @Post('/signup')
