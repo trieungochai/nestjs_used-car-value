@@ -8,7 +8,7 @@ import { CreateReportDto } from './dtos/create-report.dto';
 export class ReportsController {
   constructor(private reportsService: ReportsService) {}
 
-  @Post('/report/create')
+  @Post('/create')
   @UseGuards(AuthGuard)
   createReport(@Body() body: CreateReportDto) {
     const report = this.reportsService.create(body);

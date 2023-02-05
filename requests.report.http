@@ -1,0 +1,13 @@
+### create a new report
+POST http://localhost:3000/reports/create
+Content-Type: application/json
+
+{
+  "make": "casdsds",
+  "model": "sads",
+  "year": 1980,
+  "mileage": 1000000,
+  "long": 0,
+  "lat": 0,
+  "price": 50000
+}
